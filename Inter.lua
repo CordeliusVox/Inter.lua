@@ -31,6 +31,7 @@ local Camera = workspace.CurrentCamera
 local Active_Highlights = {}
 local Enabled = false
 local CanToggle = true
+local IsPaused = false
 
 local PreviousWalkSpeed
 local PreviousJumpHeight
@@ -56,21 +57,11 @@ local Enabled_JumpHeight= 7.2 -- Player's JumpHeight when Inter is enabled.
 
 local Attribute_Name = "Object" -- The name of the Attribute the object has. (Object must have an attribute with this name and a value of the catergories bellow!)
 
-local HighlightCategories = { -- Colors for each highlight catergory
+local HighlightCategories = { -- Colors for each highlight category
 	["Neutral"] = Color3.fromRGB(225, 225, 225),
 	["Enemy"] = Color3.fromRGB(225, 0, 0),
 	["Cash"] = Color3.fromRGB(225, 225, 0),
 	["Cop"] = Color3.fromRGB(0, 0, 225)
-	
-	--[[ Add more categories here!
-	
-	["NAME"] = Color3.fromRGB(COLOR) 
-	
-		NAME: The value of the Attribute
-		COLOR: Color of the outline / highlight (RGB)
-	
-	]]--
-
 }
 
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -210,6 +201,41 @@ function Inter:Toggle()
 
 		Clear()
 	end
+end
+
+function Inter:ChangeMaxDistance(NewDistance)
+	if NewDistance ~= MaxDistance then
+		MaxDistance = NewDistance
+		warn("MaxDistance updated to: " .. NewDistance)
+	else
+		warn("NewDistance is the same as MaxDistance")
+	end
+end
+
+function Inter:SetHighlightColor(Category, Color)
+	HighlightCategories[Category] = Color
+	warn("Highlight color for category '" .. Category .. "' updated.")
+end
+
+function Inter:Pause()
+	if not Enabled then 
+		return 
+	end
+	
+	IsPaused = true
+	warn("Highlighting system paused.")
+end
+
+function Inter:Resume()
+	if IsPaused then
+		IsPaused = false
+		Process()
+		warn("Highlighting system resumed.")
+	end
+end
+
+function Inter:IsEnabled()
+	return Enabled
 end
 
 function Inter:MonitorPlayer()
