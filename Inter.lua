@@ -1,4 +1,3 @@
-```lua
 -- @ CordeliusVox Inter View module.
 
 --[[ 
@@ -240,4 +239,3 @@ function Inter:MonitorPlayer()
 end
 
 return Inter
-```
