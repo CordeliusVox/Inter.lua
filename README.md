@@ -22,8 +22,8 @@ This module was made by @CordeliusVox
 To begin using the Inter View Module, you need to require it in a LocalScript:
 
 ```lua
-local InterView = require(game.ReplicatedStorage._Inter)
-InterView.Toggle()
+local InterView = require(game.ReplicatedStorage._Inter) -- Path to module
+InterView:Toggle()
 ```
 ### 2. Customize Categories
 
