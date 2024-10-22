@@ -134,7 +134,7 @@ local function Process()
 	end
 end
 
-function Inter:Toggle()
+function Inter:Toggle(): ()
 	if not CanToggle then 
 		return 
 	end
@@ -203,21 +203,30 @@ function Inter:Toggle()
 	end
 end
 
-function Inter:ChangeMaxDistance(NewDistance)
-	if NewDistance ~= MaxDistance then
-		MaxDistance = NewDistance
-		warn("MaxDistance updated to: " .. NewDistance)
+function Inter:ChangeMaxDistance(NewMaxDistance: number): ()
+	if NewMaxDistance ~= MaxDistance then
+		MaxDistance = NewMaxDistance
+		warn("MaxDistance updated to: " .. NewMaxDistance)
 	else
 		warn("NewDistance is the same as MaxDistance")
 	end
 end
 
-function Inter:SetHighlightColor(Category, Color)
+function Inter:ChangeMinDistance(NewMinDistance: number): ()
+	if NewMinDistance ~= MinDistance then
+		MinDistance = NewMinDistance
+		warn("MaxDistance updated to: " .. NewMinDistance)
+	else
+		warn("NewDistance is the same as MaxDistance")
+	end
+end
+
+function Inter:SetHighlightColor(Category, Color): ()
 	HighlightCategories[Category] = Color
 	warn("Highlight color for category '" .. Category .. "' updated.")
 end
 
-function Inter:Pause()
+function Inter:Pause(): ()
 	if not Enabled then 
 		return 
 	end
@@ -226,7 +235,7 @@ function Inter:Pause()
 	warn("Highlighting system paused.")
 end
 
-function Inter:Resume()
+function Inter:Resume(): ()
 	if IsPaused then
 		IsPaused = false
 		Process()
@@ -234,11 +243,11 @@ function Inter:Resume()
 	end
 end
 
-function Inter:IsEnabled()
+function Inter:IsEnabled(): (boolean)
 	return Enabled
 end
 
-function Inter:MonitorPlayer()
+function Inter:MonitorPlayer(): ()
 	RunService.RenderStepped:Connect(function()
 		if not HumanoidRootPart then
 			HumanoidRootPart = Character:FindFirstChild("HumanoidRootPart")
