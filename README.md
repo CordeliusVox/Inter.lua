@@ -6,6 +6,8 @@ The **Inter View Module** is designed to apply a highlighting system to objects 
 
 This module is versatile and supports easy customization for various object categories.
 
+This module was made by @CordeliusVox
+
 ## Features
 
 - **Distance-Based Highlighting:** Objects will fade in and out depending on their proximity to the player.
