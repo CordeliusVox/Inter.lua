@@ -62,6 +62,15 @@ local HighlightCategories = { -- Colors for each highlight category
 	["Enemy"] = Color3.fromRGB(225, 0, 0),
 	["Cash"] = Color3.fromRGB(225, 225, 0),
 	["Cop"] = Color3.fromRGB(0, 0, 225)
+
+--[[ To add more categories, Copy this line:
+
+["NAME"] = Color3.fromRGB(COLOR)
+
+- NAME: The value of the attribute (string)
+- COLOR: The color of the outline / highlight (RGB)
+
+]]--
 }
 
 -------------------------------------------------------------------------------------------------------------------------------------
