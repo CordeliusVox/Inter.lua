@@ -1,4 +1,4 @@
--- @ CordeliusVox Inter View module.
+-- @ CordeliusVox Inter View module. [OUTDATED / WORKING ON A NEW VERSION]
 
 --[[ 
 
