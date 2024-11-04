@@ -14,6 +14,9 @@ local Settings = {
 		Cooldown = 1, -- Controls the cooldown time (in seconds) for specific actions.
 
 		MaxDistance = 150, -- Maximum distance for the Inter effect to work (Past this number the highlight will be non existant, will be ignored if Transparency_Effect = true).
+		MinDistance = 10, 
+		
+		ObjectsFolder = workspace.Objects, -- path to folder where all the objects are in.
 
 		--[[ Optional ]]--
 		CanJump = false, -- Can the player jump while Inter View is active.
@@ -34,6 +37,8 @@ local Settings = {
 
 	["Highlight"] = { --  These settings define how objects will be highlighted based on categories.
 		AttributeName = "Object", -- The name of the attribute on objects that determines their highlight category.
+		
+		DefaultColor = Color3.fromRGB(225, 225, 225), -- Default color of outline if no category is found.
 
 		Categories = { -- Every highlight category, Contains their name and color.
 			["Neutral"] = Color3.fromRGB(255, 255, 255), -- The highlight color of attribute value "Neutral".
